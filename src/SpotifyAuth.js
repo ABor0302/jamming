@@ -1,6 +1,6 @@
 const SpotifyAuth = {
   clientId: 'YOUR API CLIENT ID', // Add your Spotify API client ID here
-  redirectUri: '',
+  redirectUri: 'http://localhost:3000',
   accessToken: '',
   expiresIn: 0,
 

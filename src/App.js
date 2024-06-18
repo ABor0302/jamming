@@ -3,6 +3,7 @@ import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import Playlist from './Playlist';
 import SpotifyAuth from './SpotifyAuth';
+import './App.css'; 
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -40,19 +41,24 @@ function App() {
   const savePlaylist = (trackUris, playlistName) => {
     SpotifyAuth.savePlaylist(trackUris, playlistName);
   };
-
   return (
     <div>
       <h1>Jammming App</h1>
-      <SearchBar onSearch={handleSearch} />
-      <SearchResults tracks={searchResults} onAdd={addTrack} />
-      <Playlist
-        name={playlistName}
-        tracks={playlistTracks}
-        onNameChange={updatePlaylistName}
-        onRemove={removeTrack}
-        onSave={savePlaylist}
-      />
+      <div className="container">
+        <div className="search-results">
+          <SearchBar onSearch={handleSearch} />
+          <SearchResults tracks={searchResults} onAdd={addTrack} />
+        </div>
+        <div className="playlist">
+          <Playlist
+            name={playlistName}
+            tracks={playlistTracks}
+            onNameChange={updatePlaylistName}
+            onRemove={removeTrack}
+            onSave={savePlaylist}
+          />
+        </div>
+      </div>
     </div>
   );
 }
